@@ -3,7 +3,7 @@ var KEY_CURRENT_NAME = "name";
 var KEY_CURRENT_PHONE = "phone";
 var KEY_CURRENT_MESSAGE = "message";
 
-var APP_ID = "amzn1.ask.skill.755e3133-262f-4920-97a6-aea90c641f4b"; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.ask.skill.755e3133-262f-4920-97a6-aea90c641f4b"; // Replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 var AlexaSkill = require('./AlexaSkill');
 var https = require('https');
 var helpText = "Say INTERACTIVE if you want to talk with Alexa or PLAY if you would like to play on your phone";
@@ -21,7 +21,7 @@ var TM = function () {
 };
 
 
-// Extend AlexaSkill
+// Extend AlexaSkill.
 TM.prototype = Object.create(AlexaSkill.prototype);
 TM.prototype.constructor = TM;
 
@@ -31,11 +31,10 @@ TM.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, s
 
 
 TM.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    var speechOutput = "Welcome, you have started Enigma" + helpText; //Start text
+    var speechOutput = "Welcome, you have started Enigma" + helpText; // Start text.
     var repromptText = helpTextAdd;
 	
     response.ask(speechOutput, repromptText);
-    
 };
 
 
@@ -46,15 +45,15 @@ TM.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, sessi
 
 TM.prototype.intentHandlers = {
 	"EnigmaIntent": function (intent, session, response) {
-		if(ok === 0)
+		if (ok === 0)
 		{
     		var message1 = "You have entered a game of Enigma, reply with PLAY to start!";
     		var name1 = "Amelia";
-    		//var messageType = session.attributes[KEY_CURRENT_TYPE];
+    		// var messageType = session.attributes[KEY_CURRENT_TYPE];
     		
     		console.log("Message " + "You have entered a game of Enigma, reply with PLAY to start!");
     		console.log("Name " + name1);
-    		//#console.log("Type " + messageType);
+    		// #console.log("Type " + messageType);
     		
     		var url = "https://hook.io/pawker/sendmessage?text=" + encodeURIComponent(message1) + "&number=" + name1 + "&messagetype=" + "text";
     		
@@ -84,6 +83,7 @@ TM.prototype.intentHandlers = {
     "InteractiveIntent": function (intent, session, response) {
         var text="Think of a city.";
         response.ask(text);
+
         ok = 0;
         triesLeft = 3;
         city = 0;
