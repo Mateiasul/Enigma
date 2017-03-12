@@ -4,7 +4,7 @@ from twilio import twiml
 
 app = Flask(__name__)
 ok = 0
-triesLeft = 0
+triesLeft = 3
 city = 0
 
 
@@ -74,7 +74,7 @@ def sms():
         else:
             text = "This one will be added soon, meanwhile, "
             text += "think of a different city."
-            ok--
+            ok -= 1
 
     if (city == 1):
         if (ok == 1):
@@ -82,31 +82,31 @@ def sms():
                  message_body == "time square")):
                 text = question2
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 2):
             if ((message_body == "statue of liberty" or
                  message_body == "the statue of liberty")):
                 text = bravo + question3
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 3):
             if (message_body == "madison square garden"):
                 text = bravo + question4
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 4):
             if (message_body == "central park"):
                 text = win
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
 
     if (city == 2):
         if (ok == 1):
@@ -114,35 +114,35 @@ def sms():
                  message_body == "the eiffel tower")):
                 text = bravo + questionp2
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 2):
             if ((message_body == "stade de france" or
                  message_body == "stadium of france")):
                 text = bravo + questionp3
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 3):
             if ((message_body == "the seine" or message_body == "seine" or
                  message_body == "seine river" or
                  message_body == "river seine")):
                 text = bravo + questionp4
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
         elif (ok == 4):
             if (message_body == "the louvre" or message_body == "louvre"):
                 text = win
             else:
-                triesLeft--
+                triesLeft -= 1
                 text = mistakeMsg
-                ok--
+                ok -= 1
 
-    ok++
+    ok += 1
 
     resp = twiml.Response()
     resp.message(text)
