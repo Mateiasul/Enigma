@@ -1,0 +1,79 @@
+{
+    "intents": [
+        {
+            "intent": "AMAZON.ResumeIntent"
+        },
+        {
+            "intent": "AMAZON.PauseIntent"
+        },
+        {
+            "intent": "MessageTypeIntent",
+            "slots": [
+                {
+                    "name": "Type",
+                    "type": "LIST_OF_MESSAGE_TYPE"
+                }
+            ]
+        },
+        {
+            "intent": "NameIntent",
+            "slots": [
+                {
+                    "name": "Name",
+                    "type": "AMAZON.US_FIRST_NAME"
+                }
+            ]
+        },
+        {
+            "intent": "PhoneIntent",
+            "slots": [
+                {
+                    "name": "Phone",
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        },
+        {
+            "intent": "NextIntent",
+            "slots": [
+                {
+                    "name": "Answer",
+                    "type": "CITY_LIST"
+                }
+            ]
+        },
+        {
+            "intent": "NextXIntent",
+            "slots": [
+                {
+                    "name": "Answer",
+                    "type": "CITY_LIST"
+                }
+            ]
+        },
+        {
+            "intent": "MessageIntent",
+            "slots": [
+                {
+                    "name": "Message",
+                    "type": "AMAZON.LITERAL"
+                }
+            ]
+        },
+        {
+            "intent": "AMAZON.HelpIntent"
+        },
+        {
+            "intent": "EnigmaIntent"
+        },
+        {
+            "intent": "InteractiveIntent"
+        },
+        {
+            "intent": "AMAZON.StopIntent"
+        },
+        {
+            "intent": "AMAZON.CancelIntent"
+        }
+    ]
+}
